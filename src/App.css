@@ -55,12 +55,26 @@
 }
 
 .circle-shape {
-  display: flex;
-  align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   background-color: blue;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.triangle-shape {
+  border-right: 70px solid transparent;
+  border-left: 70px solid transparent;
+  border-bottom: 70px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.square-shape {
+  width: 120px;
+  height: 120px;
+  background-color: yellowgreen;
   margin-left: auto;
   margin-right: auto;
 }
