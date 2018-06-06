@@ -90,3 +90,15 @@
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.save-load-buttons {
+  margin: 20px 0;
+}
+
+.sl-button {
+  height: 40px;
+  width: 80px;
+  font-size: 1.25em;
+  margin-left: 10px;
+  margin-right: 10px;
+}
