@@ -37,7 +37,7 @@ class Canvas extends Component {
     this.setState((prevState) => {
       return ({
         ...prevState,
-        history: [...prevState.history, prevState.spaces],
+        history: [...prevState.history, prevState],
         spaces: [
           ...prevState.spaces.slice(0, targetID -1),
           updatedTarget,
@@ -71,11 +71,21 @@ class Canvas extends Component {
   }
 
   onClickUndo = () => {
-    console.log("we can undo this");
+    const priorState = this.state.history.pop();
+    
+    this.setState((prevState) => ({
+      ...priorState,
+      redo: [...prevState.redo, this.state],
+    }))
   }
 
   onClickRedo = () => {
-    console.log("we can redo this");
+    const redoState = this.state.redo.pop();
+    
+    this.setState(prevState => ({
+      ...redoState,
+      history: [...prevState.history, this.state],
+    }))
   }
 
 
@@ -85,8 +95,8 @@ class Canvas extends Component {
     return (
       <div>
         <div className="save-load-buttons">
-          <Button classes="sl-button save" name="save" onClick={() => this.onClickSave()} disabled={!this.state.canSave} />
-          <Button classes="sl-button load" name="load" onClick={() => this.onClickLoad()} disabled={!this.state.canLoad} />
+          <Button classes="sl-button save" name="save" onClick={this.onClickSave} disabled={!this.state.canSave} />
+          <Button classes="sl-button load" name="load" onClick={this.onClickLoad} disabled={!this.state.canLoad} />
         </div>
 
         <div className="canvas-area">
@@ -96,8 +106,8 @@ class Canvas extends Component {
         </div>
 
         <div className="history-buttons">
-          <Button classes="history-button undo" name="undo" disabled={this.state.history.length === 0}/>
-          <Button classes="history-button redo" name="redo" disabled={this.state.redo.length === 0}/>
+          <Button classes="history-button undo" onClick={this.onClickUndo} name="undo" disabled={this.state.history.length === 0}/>
+          <Button classes="history-button redo" onClick={this.onClickRedo} name="redo" disabled={this.state.redo.length === 0}/>
         </div>
 
       </div>
