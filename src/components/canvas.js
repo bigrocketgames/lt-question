@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Spaces from './spaces';
 import Button from './button';
 
-const TILEKEY = "tile-save";
+const TILEKEY = "tileSave";
 
 class Canvas extends Component {
   state = {
@@ -12,6 +12,19 @@ class Canvas extends Component {
     redo: [],
     canSave: false,
     canLoad: false
+  }
+
+  componentDidMount() {
+    const tileSave = localStorage.getItem(TILEKEY);
+
+    if (tileSave) {
+      this.setState(prevState => {
+        return ({
+          ...prevState,
+          canLoad: true
+        })
+      })
+    }
   }
 
   onChangeTile = (e) => {
@@ -41,13 +54,20 @@ class Canvas extends Component {
     this.setState((prevState) => {
       return ({
         ...prevState,
-        canSave: false
+        canSave: false,
+        canLoad: true,
       })
     })
   }
 
   onClickLoad = () => {
-    
+    const loadedState = JSON.parse(localStorage.getItem(TILEKEY));
+
+    this.setState({
+      ...loadedState,
+      canSave: false,
+      canLoad: false,
+    })
   }
 
   onClickUndo = () => {
