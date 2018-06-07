@@ -14,7 +14,15 @@ const Spaces = (props) => {
   }
   return (
     <div className="space">
-      {shape}
+      <select className="change-shape" value={props.name}>
+        <option value="">Not Selected</option>
+        <option value="circle">Circle</option>
+        <option value="square">Square</option>
+        <option value="triangle">Triangle</option>
+      </select>
+      <li className="shape-container">
+        {shape}
+      </li>
     </div>
   )
 }

@@ -46,7 +46,7 @@
 
 .space {
   display: flex;
-  align-items: center;
+  position: relative;
   width: 180px;
   height: 150px;
   margin-right: 5px;
@@ -64,8 +64,9 @@
 }
 
 .triangle-shape {
-  border-right: 70px solid transparent;
-  border-left: 70px solid transparent;
+  height: 50px;
+  border-right: 60px solid transparent;
+  border-left: 60px solid transparent;
   border-bottom: 70px solid red;
   margin-left: auto;
   margin-right: auto;
@@ -101,4 +102,19 @@
   font-size: 1.25em;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.change-shape {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  height: 20px;
+  width: 30px;
+}
+
+.shape-container {
+  list-style-type: none;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
