@@ -137,12 +137,18 @@ button {
   margin-right: auto;
 }
 
+/* Shape Animations */
+
 .circle-animate {
   animation: circle-flash 0.2s linear infinite ;
 }
 
 .triangle-animate {
   animation: triangle-spin 0.3s linear infinite;
+}
+
+.square-animate {
+  animation: square-zoom 0.5s linear infinite alternate;
 }
 
 @keyframes circle-flash {
@@ -153,4 +159,9 @@ button {
 @keyframes triangle-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes square-zoom {
+  from { width: 120px; height: 120px;}
+  to { width: 60px; height: 60px;}
 }
