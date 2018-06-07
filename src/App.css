@@ -141,7 +141,16 @@ button {
   animation: circle-flash 0.2s linear infinite ;
 }
 
+.triangle-animate {
+  animation: triangle-spin 0.3s linear infinite;
+}
+
 @keyframes circle-flash {
   from { background-color: lime }
   to { background-color: cyan }
+}
+
+@keyframes triangle-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
