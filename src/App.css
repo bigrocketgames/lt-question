@@ -29,6 +29,8 @@
 
 /* Custom CSS */
 
+/* Styling for Canvas area and individual canvas spaces */
+
 .mid-area {
   display: flex;
   justify-content: center;
@@ -63,31 +65,7 @@
   border: 2px dotted black;
 }
 
-.circle-shape {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background-color: blue;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.triangle-shape {
-  height: 50px;
-  border-right: 60px solid transparent;
-  border-left: 60px solid transparent;
-  border-bottom: 70px solid red;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.square-shape {
-  width: 120px;
-  height: 120px;
-  background-color: yellowgreen;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Button Styles */
 
 button {
   height: 40px;
@@ -118,6 +96,8 @@ button {
   color: black;
 }
 
+/* Shape Choosing Select Box */
+
 .change-shape {
   position: absolute;
   right: 10px;
@@ -130,9 +110,37 @@ button {
   display: none;
 }
 
+/* Shape Styles */
+
 .shape-container {
   list-style-type: none;
   align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.circle-shape {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: blue;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.triangle-shape {
+  height: 50px;
+  border-right: 60px solid transparent;
+  border-left: 60px solid transparent;
+  border-bottom: 70px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.square-shape {
+  width: 120px;
+  height: 120px;
+  background-color: yellowgreen;
   margin-left: auto;
   margin-right: auto;
 }
