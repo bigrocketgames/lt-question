@@ -28,6 +28,7 @@ class Canvas extends Component {
     }
   }
 
+  // selecting a shape using the select box
   onChangeTile = (e) => {
     e.preventDefault();
     const targetID = parseInt(e.target.parentElement.id, 10);
@@ -49,6 +50,7 @@ class Canvas extends Component {
     })
   }
 
+  // clicking the save button
   onClickSave = () => {
     localStorage.setItem(TILEKEY, JSON.stringify(this.state));
 
@@ -61,6 +63,7 @@ class Canvas extends Component {
     })
   }
 
+  // clicking the load button
   onClickLoad = () => {
     const loadedState = JSON.parse(localStorage.getItem(TILEKEY));
 
@@ -71,6 +74,7 @@ class Canvas extends Component {
     })
   }
 
+  // clicking the undo button
   onClickUndo = () => {
     const priorState = this.state.history.pop();
     
@@ -80,28 +84,31 @@ class Canvas extends Component {
     }))
   }
 
+  // clicking the redo button
   onClickRedo = () => {
     const redoState = this.state.redo.pop();
     
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...redoState,
       history: [...prevState.history, this.state],
     }))
   }
 
+  // clicking the yes button in edit mode section
   onClickEditYes = () => {
     if (this.state.editMode) return
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       editMode: true,
     }))
   }
 
+  // clicking the no button in edit mode section
   onClickEditNo = () => {
     if (!this.state.editMode) return
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       editMode: false,
     }))
@@ -112,6 +119,7 @@ class Canvas extends Component {
     const {spaces, editMode} = this.state;
     let undoRedoButtons = null;
     
+    // determine if the undo and redo buttons should be displayed
     if (editMode) {
       undoRedoButtons = 
       <div className="history-buttons">
