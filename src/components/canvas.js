@@ -22,11 +22,13 @@ class Canvas extends Component {
     this.setState((prevState) => {
       return ({
         ...prevState,
+        history: [...prevState.history, prevState.spaces],
         spaces: [
           ...prevState.spaces.slice(0, targetID -1),
           updatedTarget,
           ...prevState.spaces.slice(targetID)
-        ]
+        ],
+        canSave: true,
       })
     })
   }
