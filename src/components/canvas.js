@@ -99,10 +99,17 @@ class Canvas extends Component {
           <Button classes="sl-button load" name="load" onClick={this.onClickLoad} disabled={!this.state.canLoad} />
         </div>
 
-        <div className="canvas-area">
-          <h2 className="canvas-title">This is the canvas area.</h2> 
+        <div className="mid-area">
+
+          <div className="edit-select">
+            <h3>EDIT MODE:</h3>
+          </div>
+
+          <div className="canvas-area">
+            <h2 className="canvas-title">This is the canvas area.</h2> 
+            {spaces.length && spaces.map(space => <Spaces key={space.id} id={space.id} name={space.name} onChange={this.onChangeTile}/>)}
+          </div>
           
-          {spaces.length && spaces.map(space => <Spaces key={space.id} id={space.id} name={space.name} onChange={this.onChangeTile}/>)}
         </div>
 
         <div className="history-buttons">

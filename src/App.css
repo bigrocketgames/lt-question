@@ -27,6 +27,15 @@
   to { transform: rotate(360deg); }
 }
 
+.mid-area {
+  display: flex;
+  justify-content: center;
+}
+  
+.edit-select {
+  margin: 20px 20px 0 10px;
+}
+
 .canvas-title {
   display: block;
   width: 100%;
@@ -37,10 +46,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   height: 600px;
-  width: 600px;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
+  width: 700px;
+  margin: 20px 0;
   border: 5px solid grey;
 }
 
