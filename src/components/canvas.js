@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
-import Spaces from './spaces';
-import Button from './button';
+import Spaces from '../containers/spaces';
+import Button from '../containers/button';
 
 const TILEKEY = "tileSave";
 

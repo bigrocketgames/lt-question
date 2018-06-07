@@ -1,7 +1,7 @@
 import React from 'react';
-import Circle from './circle';
-import Square from './square';
-import Triangle from './triangle';
+import Circle from './shapes/circle';
+import Square from './shapes/square';
+import Triangle from './shapes/triangle';
 
 const Spaces = (props) => {
   let shape = null;
