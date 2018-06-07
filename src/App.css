@@ -27,6 +27,8 @@
   to { transform: rotate(360deg); }
 }
 
+/* Custom CSS */
+
 .mid-area {
   display: flex;
   justify-content: center;
@@ -133,4 +135,13 @@ button {
   align-self: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.circle-animate {
+  animation: circle-flash 0.2s linear infinite ;
+}
+
+@keyframes circle-flash {
+  from { background-color: lime }
+  to { background-color: cyan }
 }

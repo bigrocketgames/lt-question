@@ -6,13 +6,13 @@ import Triangle from './triangle';
 const Spaces = (props) => {
   let shape = null;
   let editSelect = null;
-  
+
   if (props.name === "circle"){
-    shape = <Circle name={props.name} />
+    shape = <Circle name={props.name} id={props.id} />
   } else if (props.name === "square"){
-    shape = <Square name={props.name} />
+    shape = <Square name={props.name} id={props.id} />
   } else if (props.name === "triangle") {
-    shape = <Triangle name={props.name} />
+    shape = <Triangle name={props.name} id={props.id} />
   }
 
   if (props.edit === "true") {
