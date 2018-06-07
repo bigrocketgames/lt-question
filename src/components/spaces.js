@@ -5,6 +5,8 @@ import Triangle from './triangle';
 
 const Spaces = (props) => {
   let shape = null;
+  let editSelect = null;
+  
   if (props.name === "circle"){
     shape = <Circle name={props.name} />
   } else if (props.name === "square"){
@@ -12,14 +14,18 @@ const Spaces = (props) => {
   } else if (props.name === "triangle") {
     shape = <Triangle name={props.name} />
   }
+
+  if (props.edit === "true") {
+    editSelect = <select className="change-shape" value={props.name} onChange={(e) => props.onChange(e)}>
+      <option value="">Not Selected</option>
+      <option value="circle">Circle</option>
+      <option value="square">Square</option>
+      <option value="triangle">Triangle</option>
+    </select>
+  } 
   return (
     <div id={props.id} className="space">
-      <select className="change-shape" value={props.name} onChange={(e) => props.onChange(e)}>
-        <option value="">Not Selected</option>
-        <option value="circle">Circle</option>
-        <option value="square">Square</option>
-        <option value="triangle">Triangle</option>
-      </select>
+      {editSelect}
       <li className="shape-container">
         {shape}
       </li>

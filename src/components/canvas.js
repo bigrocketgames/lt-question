@@ -10,6 +10,7 @@ class Canvas extends Component {
     spaces: [{id: 1, name: ""}, {id: 2, name: ""}, {id: 3, name: ""}, {id: 4, name: ""}, {id: 5, name: ""}, {id: 6, name: ""}, {id: 7, name: ""}, {id: 8, name: ""}, {id: 9, name: ""}],
     history: [],
     redo: [],
+    editMode: true,
     canSave: false,
     canLoad: false
   }
@@ -88,9 +89,36 @@ class Canvas extends Component {
     }))
   }
 
+  onClickEditYes = () => {
+    if (this.state.editMode) return
+
+    this.setState(prevState => ({
+      ...prevState,
+      editMode: true,
+    }))
+  }
+
+  onClickEditNo = () => {
+    if (!this.state.editMode) return
+
+    this.setState(prevState => ({
+      ...prevState,
+      editMode: false,
+    }))
+  }
+
 
   render() {
-    const {spaces} = this.state
+    const {spaces, editMode} = this.state;
+    let undoRedoButtons = null;
+    
+    if (editMode) {
+      undoRedoButtons = 
+      <div className="history-buttons">
+        <Button classes="history-button undo" onClick={this.onClickUndo} name="undo" disabled={this.state.history.length === 0}/>
+        <Button classes="history-button redo" onClick={this.onClickRedo} name="redo" disabled={this.state.redo.length === 0}/>
+      </div>
+    }
     
     return (
       <div>
@@ -103,19 +131,18 @@ class Canvas extends Component {
 
           <div className="edit-select">
             <h3>EDIT MODE:</h3>
+            <Button classes={`edit-button edit-${editMode}`} name="YES" onClick={this.onClickEditYes}/>
+            <Button classes={`edit-button edit-${!editMode}`} name="NO" onClick={this.onClickEditNo}/>
           </div>
 
           <div className="canvas-area">
             <h2 className="canvas-title">This is the canvas area.</h2> 
-            {spaces.length && spaces.map(space => <Spaces key={space.id} id={space.id} name={space.name} onChange={this.onChangeTile}/>)}
+            {spaces.length && spaces.map(space => <Spaces key={space.id} id={space.id} name={space.name} edit={`${editMode}`} onChange={this.onChangeTile}/>)}
           </div>
-          
+
         </div>
 
-        <div className="history-buttons">
-          <Button classes="history-button undo" onClick={this.onClickUndo} name="undo" disabled={this.state.history.length === 0}/>
-          <Button classes="history-button redo" onClick={this.onClickRedo} name="redo" disabled={this.state.redo.length === 0}/>
-        </div>
+        {undoRedoButtons}        
 
       </div>
     )

@@ -87,28 +87,33 @@
   margin-right: auto;
 }
 
-.history-buttons {
-  margin: 20px 0;
-}
-
-.history-button {
+button {
   height: 40px;
   width: 80px;
   font-size: 1.25em;
+}
+
+.history-buttons, .save-load-buttons {
+  margin: 20px 0;
+}
+
+.history-button, .sl-button {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.save-load-buttons {
-  margin: 20px 0;
+.edit-button {
+  display: block;
+  margin: 10px auto;
+  box-shadow: 2px 2px 2px 2px #222;
 }
 
-.sl-button {
-  height: 40px;
-  width: 80px;
-  font-size: 1.25em;
-  margin-left: 10px;
-  margin-right: 10px;
+.edit-true {
+  color: #39FF14;
+}
+
+.edit-false {
+  color: black;
 }
 
 .change-shape {
@@ -117,6 +122,10 @@
   top: 5px;
   height: 20px;
   width: 30px;
+}
+
+.select-false {
+  display: none;
 }
 
 .shape-container {
