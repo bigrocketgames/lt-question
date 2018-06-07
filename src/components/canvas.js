@@ -5,11 +5,30 @@ import Button from './button';
 
 class Canvas extends Component {
   state = {
-    spaces: [{id: 1, name: "circle"}, {id: 2, name: "triangle"}, {id: 3, name: "square"}, {id: 4, name: "test"}, {id: 5, name: "test"}, {id: 6, name: "test"}, {id: 7, name: "test"}, {id: 8, name: "test"}, {id: 9, name: "test"}],
+    spaces: [{id: 1, name: ""}, {id: 2, name: ""}, {id: 3, name: ""}, {id: 4, name: ""}, {id: 5, name: ""}, {id: 6, name: ""}, {id: 7, name: ""}, {id: 8, name: ""}, {id: 9, name: ""}],
     history: [],
     redo: [],
-    canSave: true,
-    canLoad: true
+    canSave: false,
+    canLoad: false
+  }
+
+  onChangeTile = (e) => {
+    e.preventDefault();
+    const targetID = parseInt(e.target.parentElement.id, 10);
+    const targetSpace = this.state.spaces.find((space) => space.id === targetID)
+    const value = e.target.value;
+    const updatedTarget = {...targetSpace, name: value};
+
+    this.setState((prevState) => {
+      return ({
+        ...prevState,
+        spaces: [
+          ...prevState.spaces.slice(0, targetID -1),
+          updatedTarget,
+          ...prevState.spaces.slice(targetID)
+        ]
+      })
+    })
   }
 
   onClickSave = () => {
@@ -42,7 +61,7 @@ class Canvas extends Component {
         <div className="canvas-area">
           <h2 className="canvas-title">This is the canvas area.</h2> 
           
-          {spaces.length && spaces.map(space => <Spaces key={space.id} name={space.name} />)}
+          {spaces.length && spaces.map(space => <Spaces key={space.id} id={space.id} name={space.name} onChange={this.onChangeTile}/>)}
         </div>
 
         <div className="history-buttons">

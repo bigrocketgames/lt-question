@@ -13,8 +13,8 @@ const Spaces = (props) => {
     shape = <Triangle name={props.name} />
   }
   return (
-    <div className="space">
-      <select className="change-shape" value={props.name}>
+    <div id={props.id} className="space">
+      <select className="change-shape" value={props.name} onChange={(e) => props.onChange(e)}>
         <option value="">Not Selected</option>
         <option value="circle">Circle</option>
         <option value="square">Square</option>
