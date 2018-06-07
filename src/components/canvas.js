@@ -144,7 +144,7 @@ class Canvas extends Component {
           </div>
 
           <div className="canvas-area">
-            <h2 className="canvas-title">This is the canvas area.</h2> 
+            <h2 className="canvas-title">Pick a tile for any space.</h2> 
             {spaces.length && spaces.map(space => <Spaces key={space.id} id={space.id} name={space.name} edit={`${editMode}`} onChange={this.onChangeTile}/>)}
           </div>
 
