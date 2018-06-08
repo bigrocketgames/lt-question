@@ -81,6 +81,7 @@ class Canvas extends Component {
     this.setState((prevState) => ({
       ...priorState,
       redo: [...prevState.redo, this.state],
+      canSave: true,
     }))
   }
 
@@ -91,6 +92,7 @@ class Canvas extends Component {
     this.setState((prevState) => ({
       ...redoState,
       history: [...prevState.history, this.state],
+      canSave: true,
     }))
   }
 
