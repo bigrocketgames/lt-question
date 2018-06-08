@@ -46,6 +46,7 @@ class Canvas extends Component {
           ...prevState.spaces.slice(targetID)
         ],
         canSave: true,
+        redo: []
       })
     })
   }
