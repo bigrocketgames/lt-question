@@ -173,3 +173,27 @@ button {
   from { width: 120px; height: 120px;}
   to { width: 60px; height: 60px;}
 }
+
+@media screen and (max-width: 700px) {
+  .mid-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+    
+  .edit-select {
+    margin: 20px 20px 0 10px;
+  }
+
+  .edit-button {
+    display: inline;
+    margin: 10px auto;
+    box-shadow: 2px 2px 2px 2px #222;
+  }
+
+  .canvas-area {
+    width: 400px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+}
